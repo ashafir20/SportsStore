@@ -63,6 +63,8 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="CartTests.cs" />
     <Compile Include="AdminTests.cs" />
+    <Compile Include="AdminSecurityTests.cs" />
+    <Compile Include="ImageTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SportsStore.Domain\SportsStore.Domain.csproj">
