@@ -1,8 +1,10 @@
-﻿using System.Web;
+﻿using System.Data.Entity;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using SportsStore.Domain.Concrete;
 using SportsStore.Domain.Entities;
 using SportsStore.WebUI.Binders;
 using SportsStore.WebUI.Infrastructure;
@@ -23,6 +25,7 @@ namespace SportsStore.WebUI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            Database.SetInitializer<EFDbContext>(null);
             ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
             ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
         }

@@ -15,13 +15,18 @@ namespace SportsStore.Domain.Concrete
         public string Password = "MySmtpPassword";
         public string ServerName = "smtp.example.com";
         public int ServerPort = 587;
-        public bool WriteAsFile = true;
+        public bool WriteAsFile = false;
         public string FileLocation = @"c:\Temp\sports_store_emails";
     }
 
     public class EmailOrderProcessor : IOrderProcessor
     {
         private EmailSettings emailSettings;
+
+        public EmailOrderProcessor(EmailSettings settings)
+        {
+            emailSettings = settings;
+        }
 
         public void ProcessOrder(Cart cart, ShippingDetails shippingInfo)
         {
